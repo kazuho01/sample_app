@@ -1,0 +1,20 @@
+<% provide(:title, "Log in") %>
+<h1>Log in</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:sessoin, url: login_path) do |f| %>
+
+      <%= f.label :email, "メールアドレス" %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.submit "Log in", class: "btn btn-primary" %>
+
+    <% end %>
+
+    <p>会員登録がまだの方は <%= link_to "こちら", signup_path %> から</p>
+  </div>
+</div>
