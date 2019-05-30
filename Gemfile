@@ -5,6 +5,8 @@ ruby '2.5.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
+# ハッシュ関数。DBからパスワードが漏れてしまっても、Webサイトにログインされないようにできる
+gem 'bcrypt', '3.1.12'
 # Bootstrap-sassを追加
 gem 'bootstrap-sass', '3.3.7'
 # Use postgresql as the database for Active Record
