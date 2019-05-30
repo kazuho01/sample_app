@@ -1,0 +1,15 @@
+<% if @user.errors.any? %>
+
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      <!--<%= pluralize(@user.errors.count, "error") %>をすることで、”1 errors”のようにエラーの数に応じて活用された単語を返す-->
+      The form contains <%= pluralize(@user.errors.count, "error") %>
+    </div>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+
+<% end %>
