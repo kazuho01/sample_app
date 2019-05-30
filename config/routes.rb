@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_pages#contact'
 
   get 'signup', to: 'users#new'
-  post '/signup',  to: 'users#create' # 「リスト 7.26」で追加
+
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
 
   resources :users
     #ユーザー情報を表示するURL（/users/1）を追加するだけではない
