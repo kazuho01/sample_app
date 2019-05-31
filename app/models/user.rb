@@ -13,4 +13,11 @@ class User < ApplicationRecord
   has_secure_password #セキュアなパスワードの実行
   validates :password, presence: true, length: { minimum: 6 }
 
+  # fixture用に、password_digestの文字列をハッシュ化して、ハッシュ値として返す
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                   BCrypt::Engine.cost
+     BCrypt::Password.create(string, cost: cost)
+   end
+
 end
