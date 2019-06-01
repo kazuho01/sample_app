@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password]) #user変数がDBに存在し（&&で判別）、尚且つparamsハッシュを受け取ったpassword値とuserのemail値が同じであればtrue
       log_in @user #session_helperのlog_inメソッドを実行し、sessionメソッドのuser_id（ブラウザに一時coolieとして保持）にidを送る
       params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
-      redirect_to @user # ログインしたユーザーのユーザーページにリダイレクト
+      redirect_back_or @user 
     else
       flash.now[:danger] = "メールアドレス/パスワードが間違えています"
       render 'new'
