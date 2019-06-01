@@ -13,7 +13,7 @@ class User < ApplicationRecord
               uniqueness: { case_sensitive: false } #「uniqueness」は対象のDB内で一意である必要であるフィールドに対して指定。「case_sensigtive」は「false」を指定することで、大文字小文字の差を無視する。
 
   has_secure_password #セキュアなパスワードの実行
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   # fixture用に、password_digestの文字列をハッシュ化して、ハッシュ値として返す
   def User.digest(string)
