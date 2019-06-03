@@ -9,6 +9,10 @@ gem 'rails', '~> 5.2.3'
 gem 'bcrypt', '3.1.12'
 # ダミーユーザーを追加するfaker gemを追加
 gem 'faker', '1.9.1'
+# ページネーション
+gem 'will_paginate', '3.1.7'
+# Bootstrapのページネーションスタイルを使用
+gem 'bootstrap-will_paginate', '1.0.0'
 # Bootstrap-sassを追加
 gem 'bootstrap-sass', '3.3.7'
 # jquery
