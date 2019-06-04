@@ -13,8 +13,9 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
-  resources :users
     #ユーザー情報を表示するURL（/users/1）を追加するだけではない
     #RESTfulなUsersリソースで必要となる全てのアクションが利用できるようになる
+  resources :users
+  resources :account_activations, only: [:edit]
 
 end
