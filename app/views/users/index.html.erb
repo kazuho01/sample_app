@@ -1,15 +1,12 @@
 <% provide(:title, 'All users') %>
 <h1>すべてのユーザー</h1>
 
-<%= will_paginate @users %>
+<%= will_paginate %>
 
 <ul class="users">
-  <% @users.each do |user| %>
-    <li>
-      <%= gravatar_for user, size: 50 %>
-      <%= link_to user.name, user %>
-    </li>
-  <% end %>
+  <!-- renderにすると_user.html.erbという名前のパーシャルを直接探しに行く -->
+  <!-- 「render user」ではなく「render @users」にすることで「@users.each do |user|」は@usersをUserオブジェクトのリストだとRailsは推測する -->
+  <%= render @users %>
 </ul>
 
-<%= will_paginate @users %>
+<%= will_paginate %>
